@@ -2,4 +2,4 @@
 
 ## download and store the repository in c://xampp/htdocs
 
-### run localhost://<repository> 
+### run localhost://< repository > 
