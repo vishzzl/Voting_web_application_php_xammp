@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>student signup</title>
+    <script type="text/javascript">
+      function validate() {
+        var Uid= document.getElementById('uid').value;
+        var Name=document.getElementById('name').value;
+        var Pwd=document.getElementById('pwd').value;
+        var C_pwd=document.getElementById('c_pwd').value;
+        var uid_pattern=/^(?:[0-9]{5}[A-Z]{3}[0-9]{4})$/;
+        var regx= "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"
+
+        if(Uid==""){
+          alert("enter Uid");
+          uid.focus();
+          return false;
+        }
+        if(!Uid.match(uid_pattern)){
+          alert("uid not in required uid_pattern");
+          uid.focus();
+          return false;
+        }
+        if ((Name=="")||(Name.length<3)) {
+          alert("Enter a valid name");
+          name.focus();
+          return false;
+        }
+        if(!Pwd.match(regx)){
+          alert("password isn't in required formate");
+          pwd.focus();
+          return false;
+        }
+        if(!C_pwd.match(Pwd)){
+          alert("passwords do not match");
+          c_pwd.focus();
+          return false;
+        }
+        alert('Are you sure to submit');
+      }
+    </script>
+    <style media="screen">
+    div.inst{
+      float:right;
+    }
+
+    input{
+      padding: 5px;
+      border-color:red;
+    }
+    fieldset{
+      background-color: powderblue;
+    }
+    label:hover{
+      border-bottom:2px solid black;
+    }
+    </style>
+  </head>
+  <body>
+
+<form class="" action="student_form.php" method="post" onsubmit="return validate()">
+  <fieldset>
+    <legend>Student signup form</legend>
+    <div class="inst">
+      <p>Note: Password length minimum 8 <br> and contain One lower case ,<br> upper case and a symbol</p>
+    </div>
+    <center><table  cellspacing="5px" cellpadding="5px" >
+      <tr>
+        <td><label for="uid">Uid</label></td>
+        <td><input type="text" name="uid" id="uid" placeholder="eg: 20171CSE123"></td>
+      </tr>
+      <tr>
+        <td> <label for="">Name:</label> </td>
+        <td> <input type="text" name="name" id="name" placeholder="Enter name "> </td>
+      </tr>
+      <tr>
+        <td> <label for="">Password</label> </td>
+        <td> <input type="password" name="pwd" id='pwd'> </td>
+      </tr>
+      <tr>
+        <td> <label for="">Confirm <br> Password</label> </td>
+        <td><input type="password" name="c_pwd"  id="c_pwd" > </td>
+      </tr>
+    </table>
+    <br>
+    <input type="submit"  value="submit">
+  </fieldset>
+  </center>
+</form>
+  </body>
+</html>

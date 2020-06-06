@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>signup</title>
+    <script type="text/javascript">
+      var ajax_r= new XMLHttpRequest();
+      ajax_r.onreadystatechange=function () {
+        if(ajax_r.readyState===4){
+          document.getElementById('signup_form').innerHTML=ajax_r.responseText;
+        }
+      }
+      function send_candidate() {
+        ajax_r.open('GET','candidate_form.html');
+        ajax_r.send();
+
+      }
+      function send_student() {
+        ajax_r.open('GET','student_form.html');
+        ajax_r.send();
+
+      }
+      function form_p() {
+        alert("js working");
+        var key= document.getElementById('profile_key').value;
+        alert(key);
+        if(key==1){
+          send_candidate();
+        }
+        if(key==0){
+          send_student();
+        }
+
+      }
+    </script>
+    <style media="screen">
+      td{
+        padding:15px;
+        background-color:powderblue;
+
+      }
+      .heading{
+        margin-top: 150px;
+        margin:10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <form  action="signup.php" method="post">
+      <h3 align="center" class="heading">Choose Your profile</h3>
+    <center><table >
+    <tr>
+      <td align="center"><select class="PROFILE"  id="profile_key">
+        <option value="0">student</option>
+        <option value="1">candidate</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td align="center" style="background-color:white"> <input type="button" id='next' value="next" onclick="form_p()"> </td>
+    </tr>
+  </table></center>
+</form>
+<div id="signup_form">
+
+</div>
+  </body>
+</html>

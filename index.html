@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>login</title>
+    <script type="text/javascript">
+    function validate(){
+      var name= document.getElementById('Uname').value;
+      alert(name);
+      if(name==""){
+        alert('enter Username');
+        Uname.focus();
+        return false;
+      }
+
+
+    }
+
+    </script>
+  </head>
+  <body>
+    <form  action="login.php" method="post" onsubmit="return validate();" >
+      <table align="center">
+    <tr>
+      <td>Username</td>
+      <td> <input type="text" name="Uname" id="Uname" placeholder="eg: 20171CSE123"></td>
+    </tr>
+    <tr>
+
+      <td>Password</td>
+      <td> <input type="password" name="pass" required> </td>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <input type="submit" value="sign-in" name="submit">  </td>
+      <td><input type="button"  value="sign-up" onclick="location.href='pr_sel.html'"> </td>
+    </tr>
+    <tr>
+      <td> <input type="button" name="" value="results" onclick="location.href='results.php'"> </td>
+    </tr>
+      </table>
+
+    </form>
+  </body>
+</html>

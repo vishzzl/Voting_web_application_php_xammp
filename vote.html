@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vote</title>
+  <script type="text/javascript">
+    var ajax_r= new XMLHttpRequest();
+    ajax_r.onreadystatechange=function () {
+      if(ajax_r.readyState===4){
+        document.getElementById('candidate_list').innerHTML=ajax_r.responseText;
+      }
+    }
+    function get_candidates(){
+      ajax_r.open('GET','vote.php');
+      ajax_r.send();
+    }
+  </script>
+  </head>
+  <body align="center">
+    <h1> candidate List</h1>
+    <input type="button" name="" value="candidate list" onclick="get_candidates()">
+    <div id="candidate_list">
+
+    </div>
+  </body>
+</html>

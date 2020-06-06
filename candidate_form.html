@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      function validate() {
+        var Uid= document.getElementById('uid').value;
+        var Name=document.getElementById('uname').value;
+        var uid_pattern=/^(?:[0-9]{5}[A-Z]{3}[0-9]{4})$/;
+
+        if ((Name=="")||(Name.length<3)) {
+          alert("Enter a valid name");
+          uname.focus();
+          return false;
+        }
+
+        if(Uid==""){
+          alert("enter Uid");
+          uid.focus();
+          return false;
+        }
+
+        if(!Uid.match(uid_pattern)){
+          alert("uid not in required uid_pattern");
+          uid.focus();
+          return false;
+        }
+
+      }
+    </script>
+ </head>
+  <body>
+    <form action="candidate_form.php" method="post" onsubmit="return validate()">
+      <fieldset>
+      <legend>candidate form </legend>
+      <center>
+        <table>
+        <tr>
+          <td> Name </td>
+          <td><input type="text" name="name" id="uname" placeholder="enter name"></td>
+        </tr>
+        <tr>
+          <td>ID:</td>
+          <td><input type="text" name="uid"  id="uid" placeholder="eg 20171CSE0123"></td>
+        </tr>
+        <tr>
+        <td>  <input type="submit"  value="submit"></td>
+        </tr>
+        </table>
+      </center>
+      </fieldset>
+    </form>
+  </body>
+</html>
